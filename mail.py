@@ -3,7 +3,7 @@ from random import *
 from email_otp import *
 
 app = Flask(__name__) 
-app.secret_key = 'EmailAuthenticationByShivamYadav2021'
+app.secret_key = 'EmailAuthentication'
 @app.route('/')  
 def index():  
     return render_template("homepage.html")  
@@ -12,7 +12,7 @@ def index():
 def verify():  
     rec_email = request.form["email"]
        
-    current_otp = sendEmailVerificationRequest(receiver=rec_email) # this function sends otp to the receiver and also returns the same otp for our session storage
+    current_otp = sendEmailVerificationRequest(receiver=rec_email) # This function sends Otp to the receiver and also returns the same Otp for our session storage
     session['current_otp'] = current_otp
     return render_template('verify.html')  
 
